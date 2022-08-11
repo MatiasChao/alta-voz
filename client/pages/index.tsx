@@ -1,9 +1,22 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+
+  useEffect(() => {
+    getArticles();
+  }, [])
+
+  const getArticles = async () => {
+    const resp = await fetch('http://localhost:8080/api/articles')
+    .then(response => response.json())
+    console.log(resp)
+    // .then(data => console.log(data.json()));
+  }
+
   return (
     <div className={styles.container}>
       <Head>
