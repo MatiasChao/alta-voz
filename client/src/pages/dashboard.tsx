@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Article from '../components/Article';
+import React from 'react';
 import { withProtected } from "../hooks/route";
+import Layout from '../components/Layout';
 
 const Dashboard = ({auth}: {auth: any}) => {
+
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <Article userId={auth?.user?.user?.uid} />
-        </div>
+       <Layout auth={auth} />
     )
 }
 

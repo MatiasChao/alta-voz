@@ -7,9 +7,8 @@ const Account = ({auth}: {auth: any}) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [messageError, setMessageError] = useState('');
 
-    const { logInWithEmail, error } = auth;
+    const { logInWithEmail } = auth;
 
     const login = async () => {
         logInWithEmail(email, password)
@@ -17,7 +16,6 @@ const Account = ({auth}: {auth: any}) => {
                 Router.push('/dashboard');
             })
             .catch((error: any)  => {
-                setMessageError(error.message)
                 console.log("Hubo un error al iniciar sesión ,", error)
             });
     }
